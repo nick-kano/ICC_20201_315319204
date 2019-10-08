@@ -5,7 +5,12 @@ public class Triangulo{
 	private Vector2 c;
 	private double perimetro;
 	private double area;
-
+	/**
+	constructor del triangulo.
+	*@param nA primer punto del triangulo.
+	*@param nB segundo punto del triangulo.
+	*@param nC tercer punto del triangulo.
+	*/
 	public Triangulo(Vector2 nA,Vector2 nB, Vector2 nC){
 		double aux;
 		this.a=nA;
@@ -16,6 +21,15 @@ public class Triangulo{
 		aux=((nA.getX()*(nB.getY()-nC.getY()))+(nB.getX()*(nC.getY()-nA.getY()))+(nC.getX()*(nA.getY()-nB.getY())))/2;
 		this.area=aux;
 	}
+	/**
+	constructor del triangulo.
+	*@param x1 cordenada x del primer punto del triangulo.
+	*@param y1 cordenada y del primer punto del triangulo.
+	*@param x2 cordenada x del segundo punto del triangulo.
+	*@param y2 cordenada y del segundo punto del triangulo.
+	*@param x3 cordenada x del tercer punto del triangulo.
+	*@param y3 cordenada y del tercer punto del triangulo.
+	*/
 	public Triangulo(double x1,double y1,double x2,double y2,double x3,double y3){
 		double aux;
 		Vector2 aux1;
@@ -35,6 +49,9 @@ public class Triangulo{
 		}
 		this.area=aux;
 	}
+	/**
+	constructor del triangulo por omision.
+	*/
 	public Triangulo(){
 		Vector2 aux;
 		aux= new Vector2(0,0);
@@ -65,6 +82,10 @@ public class Triangulo{
 			}else return false;
 		}else return false;
 	}
+	/**
+	metodo que convierte un objeto en formato SVG
+	@return el string para imprimir la figura en SVG.
+	*/
 	public String toSVG(){
 		String cad="";
 		cad=cad+"<polygon points=\""+this.a.getX()+","+this.a.getY()+" "+this.b.getX()+","+this.b.getY()+" "+this.c.getX()+","+this.c.getY()+"\" stroke=\"#000080\" stroke-width=\""+this.a.getMag()+"\" fill=\"#0000ff\" />";

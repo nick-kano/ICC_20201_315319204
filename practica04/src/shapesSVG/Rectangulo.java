@@ -5,7 +5,12 @@ public class Rectangulo{
 	private double alto;
 	private double perimetro;
 	private double area;
-
+	/**
+	constructor del Rectangulo.
+	*@param nA vector con las cordenadas del punto inferior izquierdo del rectangulo.
+	*@param nAncho tamaño del ancho del rectangulo.
+	*@param nAlto tamaño del alto del rectangulo.
+	*/
 	public Rectangulo(Vector2 nA,double nAncho, double nAlto){
 		double aux;
 		this.a=nA;
@@ -16,6 +21,13 @@ public class Rectangulo{
 		aux= (nAncho*nAlto);
 		this.area = aux;
 	}
+	/**
+	constructor del Rectangulo.
+	*@param x cordenada x del punto inferior izquierdo del rectangulo.
+	*@param y cordenada y del punto inferior izquierdo del rectangulo.
+	*@param nAncho tamaño del ancho del rectangulo.
+	*@param nAlto tamaño del alto del rectangulo.
+	*/
 	public Rectangulo(double x, double y, double nAncho, double nAlto){
 		double aux;
 		Vector2 aux1;
@@ -28,6 +40,9 @@ public class Rectangulo{
 		aux= (nAncho*nAlto);
 		this.area = aux;
 	}
+	/**
+	constructor por omision del rectangulo
+	*/
 	public Rectangulo(){
 		Vector2 aux1;
 		aux1=new Vector2(0,0);	
@@ -58,6 +73,10 @@ public class Rectangulo{
 			}else return false;
 		}else return false;
 	}
+	/**
+	metodo que convierte un objeto en formato SVG
+	@return el string para imprimir la figura en SVG.
+	*/
 	public String toSVG(){
 		String cad="";
 		cad=cad+"<rect x=\""+this.a.getX()+"\" y=\""+this.a.getY()+"\" width=\""+this.ancho+"\" height=\""+this.alto+"\" stroke=\"#00995c\" stroke-width=\""+this.a.getMag()+"\" fill=\"#00ff99\" />";

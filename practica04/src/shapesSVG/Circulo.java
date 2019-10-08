@@ -4,13 +4,23 @@ public class Circulo{
 	private double radio;
 	private double perimetro;
 	private double area;
-
+	/**
+	constructor del Circulo.
+	*@param nCentro el vector donde se encuentra el centro del circulo.
+	*@param nRadio la distancia entre el centro y la orilla del circulo.
+	*/
 	public Circulo(Vector2 nCentro,double nRadio){
 		this.centro=nCentro;
 		this.radio=nRadio;
 		this.perimetro=Math.PI*2*nRadio;
 		this.area=Math.PI*nRadio*nRadio;
 	}
+	/**
+	constructor del Circulo.
+	*@param x cordenada x del centro del circulo.
+	*@param y cordenada y del centro del circulo.
+	*@param nRadio la distancia entre el centro y la orilla del circulo.
+	*/
 	public Circulo(double x,double y,double nRadio){
 		Vector2 aux;
 		aux = new Vector2(x,y);
@@ -19,6 +29,9 @@ public class Circulo{
 		this.perimetro=Math.PI*2*nRadio;
 		this.area=Math.PI*nRadio*nRadio;
 	}
+	/**
+	constructor por omision del circulo.
+	*/
 	public Circulo(){
 		Vector2 aux;
 		aux = new Vector2(0,0);
@@ -46,6 +59,10 @@ public class Circulo{
 			}else return false;
 		}else return false;
 	}
+	/**
+	metodo que convierte un objeto en formato SVG
+	@return el string para imprimir la figura en SVG.
+	*/
 	public String toSVG(){
 		String cad="";
 		cad=cad+"<circle cx=\""+this.centro.getX()+"\" cy=\""+this.centro.getY()+"\" r=\""+this.radio+"\" stroke=\"#ff0066\" stroke-width=\""+this.centro.getMag()+"\" fill=\"#ff99c2\" />";
