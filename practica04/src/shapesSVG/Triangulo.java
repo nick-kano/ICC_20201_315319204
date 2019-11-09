@@ -1,10 +1,9 @@
 package shapesSVG;
-public class Triangulo{
+public class Triangulo extends Shape{
 	private Vector2 a;
 	private Vector2 b;
 	private Vector2 c;
 	private double perimetro;
-	private double area;
 	/**
 	constructor del triangulo.
 	*@param nA primer punto del triangulo.
@@ -61,7 +60,24 @@ public class Triangulo{
 		this.perimetro=0;
 		this.area=0;
 	}
-
+	/**
+	*metodo observador del area
+	*@return el area
+	*/
+	public double getArea(){
+		return this.area;
+	}
+	/**
+	*Metodo que compara una figura con un
+	*@param c figura con la que se va a comparar
+	*@return -1 si el area de esta figura es menor a la que se compara, 0 si es igual y 1 si es mayor
+	*/
+	@Override
+	public int compareTo(Shape c){
+		if(this.area<c.getArea())return -1;
+		if(this.area==c.getArea())return 0;
+		else return 1;
+	}
 	@Override
 	public String toString(){
 		String cad = "el triangulo tiene cordenadas: ";
@@ -90,5 +106,8 @@ public class Triangulo{
 		String cad="";
 		cad=cad+"<polygon points=\""+this.a.getX()+","+this.a.getY()+" "+this.b.getX()+","+this.b.getY()+" "+this.c.getX()+","+this.c.getY()+"\" stroke=\"#000080\" stroke-width=\""+this.a.getMag()+"\" fill=\"#0000ff\" />";
 		return cad;
+	}
+	public void transform(Funcion f){
+		this.a=f.transform(this.a);
 	}
 }

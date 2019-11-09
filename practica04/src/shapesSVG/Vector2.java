@@ -2,7 +2,7 @@ package shapesSVG;
 /**
 	@author Nicolas Kano.
 */
-public class Vector2{
+public class Vector2 extends Shape{
 	private double x;
 	private double y;
 	private double mag;
@@ -41,6 +41,18 @@ public class Vector2{
 	*/
 	public double getMag(){
 		return this.mag;
+	}
+	/**
+	*Metodo que compara una figura con un
+	*@param c figura que vamos a comparar con el vector
+	*@return -1 si la figura con la que estamos comparando no es un vector 0 si lo es
+	*/
+	@Override
+	public int compareTo(Shape c){
+		if(!(c instanceof Vector2)){
+			return -1;
+		}
+		else return 0;
 	}
 	/**
 	*@param otroV vector a el cual se va a calcular la distancia.

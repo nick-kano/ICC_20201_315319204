@@ -1,5 +1,5 @@
 package shapesSVG;
-public class Linea{
+public class Linea extends Shape{
 	private Vector2 a;
 	private Vector2 b;
 	private double longitud;
@@ -41,7 +41,29 @@ public class Linea{
 		this.b=aux;
 		this.longitud=0;
 	}
-
+	/**
+	*metodo obvervador de la longitud
+	*@return la longuitud
+	*/
+	public double getLong(){
+		return this.longitud;
+	}
+	/**
+	*Metodo que compara una figura con un una linea
+	*@param c figura con la que se va a comparar
+	*@return -2 si la figura con la que estamos comparando no es una linea, -1 si tiene menor longitud contra la linea que estamos comparando y 0 si tiene mayor longitud
+	*/
+	@Override
+	public int compareTo(Shape c){
+		if(!(c instanceof Linea)){
+			return -2;
+		}
+		else{
+			if(this.longitud<c.getLong())return -1;
+			if(this.longitud==c.getLong())return 0;
+			else return 1;
+		}
+	}
 	@Override
 	public String toString(){
 		String cad = "";

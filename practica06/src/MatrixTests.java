@@ -65,5 +65,11 @@ public class MatrixTests{
 		getElement_test(mat3,1,1,5);
 		determinant_test(mat4,det);
 		equals_test(mat,mat);
+
+		//prueba de la interfaz
+		double[][] ar7 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+		Matrix mat5 = new Matrix(ar7);
+    	for(Double dob : mat )
+    	System.out.println(dob);
 	}	
 }

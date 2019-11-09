@@ -1,9 +1,8 @@
 package shapesSVG;
-public class Circulo{
+public class Circulo extends Shape{
 	private Vector2 centro;
 	private double radio;
 	private double perimetro;
-	private double area;
 	/**
 	constructor del Circulo.
 	*@param nCentro el vector donde se encuentra el centro del circulo.
@@ -40,7 +39,24 @@ public class Circulo{
 		this.perimetro=0;
 		this.area=0;
 	}
-
+	/**
+	*metodo observador del area
+	*@return el area
+	*/
+	public double getArea(){
+		return this.area;
+	}
+	/**
+	*Metodo que compara una figura con un
+	*@param c figura con la que se va a comparar
+	*@return -1 si el area de esta figura es menor a la que se compara, 0 si es igual y 1 si es mayor
+	*/
+	@Override
+	public int compareTo(Shape c){
+		if(this.area<c.getArea())return -1;
+		if(this.area==c.getArea())return 0;
+		else return 1;
+	}
 	@Override
 	public String toString(){
 		String cad = "el circulo tiene su centro en: ";

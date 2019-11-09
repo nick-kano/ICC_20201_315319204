@@ -1,10 +1,9 @@
 package shapesSVG;
-public class Rectangulo{
+public class Rectangulo extends Shape{
 	private Vector2 a;
 	private double ancho;
 	private double alto;
 	private double perimetro;
-	private double area;
 	/**
 	constructor del Rectangulo.
 	*@param nA vector con las cordenadas del punto inferior izquierdo del rectangulo.
@@ -52,7 +51,24 @@ public class Rectangulo{
 		this.perimetro=0;
 		this.area=0;
 	}
-
+	/**
+	*metodo observador del area
+	*@return el area
+	*/
+	public double getArea(){
+		return this.area;
+	}
+	/**
+	*Metodo que compara una figura con un
+	*@param c figura con la que se va a comparar
+	*@return -1 si el area de esta figura es menor a la que se compara, 0 si es igual y 1 si es mayor
+	*/
+	@Override
+	public int compareTo(Shape c){
+		if(this.area<c.getArea())return -1;
+		if(this.area==c.getArea())return 0;
+		else return 1;
+	}
 	@Override
 	public String toString(){
 		String cad = "el rectangulo tiene un punto en:";

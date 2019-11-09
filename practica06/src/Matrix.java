@@ -1,4 +1,5 @@
-public class Matrix{
+import java.util.Iterator;
+public class Matrix implements Iterable<Double>{
 	private double[][] matriz;
 	/**
 	*Construye una matriz vacia de n por m
@@ -133,5 +134,58 @@ public class Matrix{
 			}
 		}
 		return false;
+	}
+	/**
+	*metodo que devuelve un iterador de matriz
+	*@return el iterador
+	*/
+	@Override
+	public Iterator<Double> iterator(){
+		return new MatrixIterator();
+	}
+	/**
+	*clase del iterador
+	*/
+	private class MatrixIterator implements Iterator<Double>{
+		private int col=-1;
+		private int fila=0;
+		private boolean hasNextCol(){
+			return (col<matriz[0].length-1)?true:false;
+		}
+		private boolean hasNextFila(){
+			return (fila<matriz.length-1)?true:false;
+		}
+		/**
+		*metodo que sirve como indice para cuando detener al iterador
+		*@return true si aun debe hacer porlomenos otro ciclo false si no
+		*/
+		@Override
+		public boolean hasNext(){
+			if(this.hasNextCol()){
+				return true;
+			}else{
+				return (this.hasNextFila())?true:false;
+			}
+		}
+		/**
+		*metodo que hace el ciclo del iterador
+		*@return el double que va en la siguiente posicion de la matriz
+		*/
+		@Override
+		public Double next(){
+			if(hasNext()){
+				if(hasNextCol()){
+					col++;
+				}
+				else{
+					col=0;
+					if(hasNextFila()){
+						fila++;
+					}
+				}
+				return Matrix.this.matriz[this.fila][this.col];
+			}
+			return null;
+		}
 	}
 }
